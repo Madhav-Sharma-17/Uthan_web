@@ -1,31 +1,28 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Poppins } from 'next/font/google';
+import type React from "react";
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 
-const poppins = Poppins({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], // ✅ valid weights
-  subsets: ['latin'],
-});
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-
+// ✅ Correct single declaration
 const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // valid weights
   variable: "--font-sans",
-})
+});
 
 export const metadata: Metadata = {
   title: "Uthan Youth Parliament",
   description: "Empowering Youth Through Dialogue and Leadership",
   generator: "v0.app",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -36,5 +33,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
